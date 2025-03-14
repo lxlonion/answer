@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next';
 
 import ToolItem from '../toolItem';
 import { IEditorContext } from '../types';
+import { loggedUserInfoStore } from '@/stores';
 
 let context: IEditorContext;
 const Link = () => {
@@ -32,6 +33,7 @@ const Link = () => {
     keyMap: ['Ctrl-l'],
     tip: `${t('link.text')} (Ctrl+l)`,
   };
+  const { user } = loggedUserInfoStore();
   const [visible, setVisible] = useState(false);
   const [link, setLink] = useState({
     value: 'https://',
@@ -87,6 +89,10 @@ const Link = () => {
     editor.focus();
   };
 
+  const handleFillUserInfo = () => {
+    setName({ ...name, value: `${user.display_name} (${user.username})` });
+  };
+
   return (
     <>
       <ToolItem {...item} onClick={addLink} />
@@ -124,6 +130,9 @@ const Link = () => {
                 onChange={(e) => setName({ ...name, value: e.target.value })}
                 isInvalid={name.isInvalid}
               />
+              <Button variant="link" onClick={handleFillUserInfo}>
+                {t('link.fill_user_info')}
+              </Button>
             </Form.Group>
           </Form>
         </Modal.Body>
