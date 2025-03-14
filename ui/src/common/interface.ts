@@ -143,7 +143,7 @@ export interface User {
   display_name: string;
   avatar: string;
 }
-
+// **********************************************************************
 export interface UserInfoBase {
   id?: string;
   avatar: any;
@@ -172,7 +172,7 @@ export interface UserInfoRes extends UserInfoBase {
   have_password: boolean;
   [prop: string]: any;
 }
-
+// **********************************************************************
 export type UploadType = 'post' | 'avatar' | 'branding' | 'post_attachment';
 export interface UploadReq {
   file: FormData;
