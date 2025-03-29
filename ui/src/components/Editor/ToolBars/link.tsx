@@ -20,10 +20,10 @@
 import { useEffect, useRef, useState, memo } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 import ToolItem from '../toolItem';
 import { IEditorContext } from '../types';
-import { loggedUserInfoStore } from '@/stores';
 import { loggedUserInfoStore } from '@/stores';
 
 let context: IEditorContext;
@@ -32,6 +32,7 @@ let context: IEditorContext;
  */
 const Link = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'editor' });
+  const { qid = '' } = useParams();
   // 定义工具栏项的属性
   const item = {
     label: 'link-45deg',
@@ -43,7 +44,7 @@ const Link = () => {
   const [visible, setVisible] = useState(false);
   // 存储链接的 URL 和验证状态
   const [link, setLink] = useState({
-    value: 'https://',
+    value: 'order?seller+',
     isInvalid: false,
     errorMsg: '',
   });
@@ -53,6 +54,8 @@ const Link = () => {
     isInvalid: false,
     errorMsg: '',
   });
+  // 存储价格的状态
+  const [price, setPrice] = useState('');
   // 用于获取 URL 输入框的引用
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -108,7 +111,10 @@ const Link = () => {
     editor.focus();
   };
   const handleFillUserInfo = () => {
-    setName({ ...name, value: `${user.display_name} (${user.username})` });
+    setLink({
+      ...name,
+      value: `https://localhost:2345/orders?seller+${user.e_mail}+${qid}+${price}`,
+    });
   };
 
   return (
@@ -151,9 +157,16 @@ const Link = () => {
                 onChange={(e) => setName({ ...name, value: e.target.value })}
                 isInvalid={name.isInvalid}
               />
-              <Button variant="link" onClick={handleFillUserInfo}>
-                {t('link.fill_user_info')}
-              </Button>
+            </Form.Group>
+
+            <Form.Group controlId="editor.price" className="mb-3">
+              <Form.Label>{t('Price')}</Form.Label>
+              <Form.Control
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Enter price"
+              />
             </Form.Group>
           </Form>
         </Modal.Body>

@@ -926,8 +926,8 @@ ui:
     italic:
       text: 斜体
     link:
-      text: 超链接
-      add_link: 添加超链接
+      text: 二手商品
+      add_link: 添加二手商品
       form:
         fields:
           url:
