@@ -118,8 +118,6 @@
 // };
 
 // export default Questions;
-
-
 import { FC } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useMatch, Link, useSearchParams } from 'react-router-dom';

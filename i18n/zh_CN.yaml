@@ -1533,7 +1533,7 @@ ui:
     unanswered: 未回答
     modified: 更新于
     answered: 回答于
-    asked: 提问于
+    # asked: 提问于
     closed: 已关闭
     follow_a_tag: 关注一个标签
     more: 更多
