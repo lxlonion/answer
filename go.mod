@@ -56,7 +56,7 @@ require (
 	github.com/swaggo/swag v1.16.3
 	github.com/tidwall/gjson v1.17.3
 	github.com/yuin/goldmark v1.7.4
-	go.uber.org/mock v0.5.0
+	go.uber.org/mock v0.5.1
 	golang.org/x/crypto v0.27.0
 	golang.org/x/image v0.20.0
 	golang.org/x/net v0.29.0

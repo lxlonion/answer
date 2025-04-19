@@ -1056,7 +1056,7 @@ ui:
     btn_cancel: 取消
     show_more: "{{count}} 條剩餘評論"
     tip_question: >-
-      通过評論询问更多问题或提出改進建議。避免在評論中回答問題。
+      通过評論询问更多帖子或提出改進建議。避免在評論中回答問題。
     tip_answer: >-
       使用評論回復其他用戶或通知他們进行更改。如果你要添加新的信息，請編輯你的帖子，而不是發表評論。
     tip_vote: It adds something useful to the post
