@@ -405,7 +405,7 @@ backend:
           other: 该帖子存在上面没有列出的另一个原因。
     operation_type:
       asked:
-        other: 提问于
+        other:  I
       answered:
         other: 回答于
       modified:
@@ -502,9 +502,9 @@ backend:
         other: "这是测试电子邮件。\n<br><br>\n\n-<br>\n注意：这是一个自动的系统电子邮件， 请不要回复此消息，因为您的回复将不会被看到。"
   action_activity_type:
     upvote:
-      other: 点赞
+      other:  I
     upvoted:
-      other: 点赞
+      other:  I
     downvote:
       other: 点踩
     downvoted:
@@ -1338,7 +1338,7 @@ ui:
     sent_success: 发送成功
   related_question:
     title: 相关帖子
-    answers: 个回答
+    answers: I
   linked_question:
     title: 关联的帖子
     description: 帖子关联到
@@ -1351,8 +1351,8 @@ ui:
     search: 搜索人员
   question_detail:
     action: 操作
-    Asked: 提问于
-    asked: 提问于
+    Asked:  I
+    asked:  I
     update: 修改于
     edit: 编辑于
     commented: 评论
@@ -1370,7 +1370,7 @@ ui:
     answer_useful: 这是有用的
     answer_un_useful: 它是没有用的
     answers:
-      title: 个回答
+      title:  I
       score: 评分
       newest: 最新
       oldest: 最旧
@@ -1520,8 +1520,8 @@ ui:
     follow_tag_tip: 关注标签来筛选你的帖子列表。
     hot_questions: 热门帖子
     all_questions: 全部帖子
-    x_questions: "{{ count }} 个帖子"
-    x_answers: "{{ count }} 个回答"
+    x_questions: "{{ count }}"
+    x_answers: "{{ count }}"
     questions: 帖子
     answers: 回答
     newest: 最新
@@ -1533,7 +1533,7 @@ ui:
     unanswered: 未回答
     modified: 更新于
     answered: 回答于
-    # asked: 提问于
+    # asked:  I
     closed: 已关闭
     follow_a_tag: 关注一个标签
     more: 更多
@@ -1565,7 +1565,7 @@ ui:
     content_empty: 未找到帖子。
     accepted: 已采纳
     answered: 回答于
-    asked: 提问于
+    asked:  I
     downvoted: 点踩
     mod_short: 版主
     mod_long: 版主
@@ -1665,8 +1665,8 @@ ui:
     db_failed_desc: >-
       这或者意味着数据库信息在 <1>config.yaml</1> 文件不正确，或者无法与数据库服务器建立联系。这可能意味着你的主机数据库服务器故障。
   counts:
-    views: 次浏览
-    votes: 个点赞
+    views: I
+    votes: I
     answers: 个回答
     accepted: 已被采纳
   page_error:
@@ -2193,14 +2193,14 @@ ui:
     undeleted: 取消删除
     deleted: 删除
     downvote: 反对
-    upvote: 点赞
+    upvote:  I
     accept: 采纳
     cancelled: 已取消
     commented: '评论:'
     rollback: 回滚
     edited: 最后编辑于
     answered: 回答于
-    asked: 提问于
+    asked:  I
     closed: 关闭
     reopened: 重新开启
     created: 创建于

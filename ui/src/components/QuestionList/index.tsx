@@ -18,7 +18,7 @@
  */
 
 import { FC } from 'react';
-import { Card } from 'react-bootstrap'; // Import Card
+import { Card, Row, Col } from 'react-bootstrap'; // 修改导入，添加 Row 和 Col
 import { NavLink, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -90,72 +90,78 @@ const QuestionList: FC<Props> = ({
         {isSkeletonShow ? (
           <QuestionListLoader />
         ) : (
-          data?.list?.map((li) => {
-            return (
-              <Card key={li.id} className="mb-3">
-                <Card.Body>
-                  <h5 className="text-wrap text-break">
-                    {li.pin === 2 && (
-                      <Icon
-                        name="pin-fill"
-                        className="me-1"
-                        title={t('pinned', { keyPrefix: 'btns' })}
-                      />
-                    )}
-                    <NavLink
-                      to={pathFactory.questionLanding(li.id, li.url_title)}
-                      className="link-dark">
-                      {li.title}
-                      {li.status === 2 ? ` [${t('closed')}]` : ''}
-                    </NavLink>
-                  </h5>
-                  <div className="d-flex flex-wrap flex-column flex-md-row align-items-md-center small mb-2 text-secondary">
-                    <div className="d-flex flex-wrap me-0 me-md-3">
-                      <BaseUserCard
-                        data={li.operator}
-                        showAvatar={false}
-                        className="me-1"
-                      />
-                      •
-                      <FormatTime
-                        time={
-                          curOrder === 'active' ? li.operated_at : li.created_at
-                        }
-                        className="text-secondary ms-1 flex-shrink-0"
-                        preFix={
-                          curOrder === 'active'
-                            ? t(li.operation_type)
-                            : t('asked')
-                        }
-                      />
-                    </div>
-                    <Counts
-                      data={{
-                        votes: li.vote_count,
-                        answers: li.answer_count,
-                        views: li.view_count,
-                      }}
-                      isAccepted={li.accepted_answer_id >= 1}
-                      className="mt-2 mt-md-0"
-                    />
-                  </div>
-                  <div className="question-tags m-n1">
-                    {Array.isArray(li.tags)
-                      ? li.tags.map((tag) => {
-                          return (
-                            <Tag
-                              key={tag.slug_name}
-                              className="m-1"
-                              data={tag}
-                            />
-                          );
-                        })
-                      : null}
-                  </div>
-                </Card.Body>
-              </Card>
-            );
-          })
+          <Row className="g-3">
+            {data?.list?.map((li) => {
+              return (
+                <Col key={li.id} xs={12} md={6} lg={4}>
+                  <Card className="h-100">
+                    <Card.Body>
+                      <h5 className="text-wrap text-break">
+                        {li.pin === 2 && (
+                          <Icon
+                            name="pin-fill"
+                            className="me-1"
+                            title={t('pinned', { keyPrefix: 'btns' })}
+                          />
+                        )}
+                        <NavLink
+                          to={pathFactory.questionLanding(li.id, li.url_title)}
+                          className="link-dark">
+                          {li.title}
+                          {li.status === 2 ? ` [${t('closed')}]` : ''}
+                        </NavLink>
+                      </h5>
+                      <div className="d-flex flex-wrap flex-column align-items-start small mb-2 text-secondary">
+                        <div className="d-flex flex-wrap me-0 me-md-3">
+                          <BaseUserCard
+                            data={li.operator}
+                            showAvatar={false}
+                            className="me-1"
+                          />
+                          •
+                          <FormatTime
+                            time={
+                              curOrder === 'active'
+                                ? li.operated_at
+                                : li.created_at
+                            }
+                            className="text-secondary ms-1 flex-shrink-0"
+                            preFix={
+                              curOrder === 'active'
+                                ? t(li.operation_type)
+                                : t('asked')
+                            }
+                          />
+                        </div>
+                        <Counts
+                          data={{
+                            votes: li.vote_count,
+                            answers: li.answer_count,
+                            views: li.view_count,
+                          }}
+                          isAccepted={li.accepted_answer_id >= 1}
+                          className="mt-2"
+                        />
+                      </div>
+                      <div className="question-tags m-n1 mt-auto">
+                        {Array.isArray(li.tags)
+                          ? li.tags.map((tag) => {
+                              return (
+                                <Tag
+                                  key={tag.slug_name}
+                                  className="m-1"
+                                  data={tag}
+                                />
+                              );
+                            })
+                          : null}
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
         )}
       </div>
       {count <= 0 && !isLoading && <Empty />}
