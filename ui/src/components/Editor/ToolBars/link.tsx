@@ -140,7 +140,7 @@ const Link = () => {
                 isInvalid={link.isInvalid}
               />
               <Button variant="link" onClick={handleFillUserInfo}>
-                {t('link.fill_user_info')}
+                {t('添加商品')}
               </Button>
             </Form.Group>
 

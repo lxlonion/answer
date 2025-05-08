@@ -171,6 +171,44 @@ const Questions: FC = () => {
   return (
     <Row className="pt-4 mb-5">
       <Col className="page-main flex-auto">
+        <div className="swiper-container mb-4 p-3 border rounded">
+          <div className="swiper-item text-center">
+            <img
+              src="http://localhost/uploads/post/5rJycyk1uR7.jpg"
+              alt="Context:1"
+              style={{
+                maxWidth: '80%',
+                height: 'auto',
+                marginBottom: '0.5rem',
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+            <p> </p>
+          </div>
+          {/* Hidden items for structure representation */}
+          <div className="swiper-item text-center" style={{ display: 'none' }}>
+            <img
+              src="http://localhost/uploads/post/5rJv6TmZojd.jpg"
+              alt="Context:2"
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                marginBottom: '0.5rem',
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
+            <p>Context:2</p>
+          </div>
+          <p className="text-center text-muted mt-2">
+            <small>
+              <em>10个肉罐头</em>
+            </small>
+          </p>
+        </div>
         <QuestionList
           source="questions"
           data={listData}

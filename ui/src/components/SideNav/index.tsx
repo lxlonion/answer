@@ -51,8 +51,19 @@ const Index: FC = () => {
             className={({ isActive }) =>
               isActive || pathname === '/' ? 'nav-link active' : 'nav-link'
             }>
-            <Icon name="question-circle-fill" className="me-2" />
+            {/* <Icon name="question-circle-fill" className="me-2" /> */}
+            <Icon name="award-fill" className="me-2" />
             <span>{t('header.nav.question')}</span>
+          </NavLink>
+
+          <NavLink
+            to="/questions"
+            className={() =>
+              pathname === '/questionsba' ? 'nav-link active' : 'nav-link'
+            }>
+            {/* <Icon name="award-fill" className="me-2" /> */}
+            <Icon name="question-circle-fill" className="me-2" />
+            <span>{t('header.nav.badges')}</span>
           </NavLink>
 
           <NavLink
@@ -69,10 +80,10 @@ const Index: FC = () => {
             <span>{t('header.nav.user')}</span>
           </NavLink>
 
-          <NavLink to="/badges" className="nav-link">
+          {/* <NavLink to="/badges" className="nav-link">
             <Icon name="award-fill" className="me-2" />
             <span>{t('header.nav.badges')}</span>
-          </NavLink>
+          </NavLink> */}
 
           {can_revision || userInfo?.role_id === 2 ? (
             <>
